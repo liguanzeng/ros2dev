@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from learning_interface/srv/GetObjectPosition.srv
+// generated code does not contain a copyright notice
+
+
+module learning_interface {
+  module srv {
+    struct GetObjectPosition_Request {
+      @verbatim (language="comment", text=
+        "获取目标位置的指令")
+      boolean get;
+    };
+    struct GetObjectPosition_Response {
+      @verbatim (language="comment", text=
+        "目标的X坐标")
+      int32 x;
+
+      @verbatim (language="comment", text=
+        "目标的Y坐标")
+      int32 y;
+    };
+  };
+};
