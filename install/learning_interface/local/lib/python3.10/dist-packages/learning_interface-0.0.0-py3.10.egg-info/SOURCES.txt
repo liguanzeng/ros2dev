@@ -4,3 +4,10 @@ learning_interface.egg-info/PKG-INFO
 learning_interface.egg-info/SOURCES.txt
 learning_interface.egg-info/dependency_links.txt
 learning_interface.egg-info/top_level.txt
+learning_interface/action/__init__.py
+learning_interface/action/_move_circle.py
+learning_interface/msg/__init__.py
+learning_interface/msg/_object_position.py
+learning_interface/srv/__init__.py
+learning_interface/srv/_add_two_ints.py
+learning_interface/srv/_get_object_position.py
