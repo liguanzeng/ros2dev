@@ -1,6 +1,9 @@
 source;share/robot_control_interfaces/hook/cmake_prefix_path.ps1
 source;share/robot_control_interfaces/hook/cmake_prefix_path.dsv
 source;share/robot_control_interfaces/hook/cmake_prefix_path.sh
+source;share/robot_control_interfaces/hook/ld_library_path_lib.ps1
+source;share/robot_control_interfaces/hook/ld_library_path_lib.dsv
+source;share/robot_control_interfaces/hook/ld_library_path_lib.sh
 source;share/robot_control_interfaces/local_setup.bash
 source;share/robot_control_interfaces/local_setup.dsv
 source;share/robot_control_interfaces/local_setup.ps1
