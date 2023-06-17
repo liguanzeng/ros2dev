@@ -6,7 +6,7 @@
   	<visual>
       <origin xyz="0 0 0.0" rpy="0 0 0"/>
       <geometry>
-		<cylinder length="0.12" radius="0.10"/>
+		    <cylinder length="0.12" radius="0.10"/>
       </geometry>
     </visual>
   </link>
@@ -16,7 +16,7 @@
   	<visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-		<cylinder length="0.02" radius="0.02"/>
+		    <cylinder length="0.02" radius="0.02"/>
       </geometry>
       <material name="black">
       	<color rgba="0.0 0.0 0.0 0.8" /> 

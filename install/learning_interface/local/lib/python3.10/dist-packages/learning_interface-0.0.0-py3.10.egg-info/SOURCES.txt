@@ -1,6 +1,0 @@
-setup.py
-learning_interface/__init__.py
-learning_interface.egg-info/PKG-INFO
-learning_interface.egg-info/SOURCES.txt
-learning_interface.egg-info/dependency_links.txt
-learning_interface.egg-info/top_level.txt
