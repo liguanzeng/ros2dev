@@ -10,6 +10,7 @@
     - 使用spdlog
 4. rpc在整个系统中的作用
 5. 整理ros2中各个pkg的功能
+6. 使用Xacro封装常用的机器人部件
 ## 文件说明
 - src目录内为源码
 - install目录为编译好的pkg
