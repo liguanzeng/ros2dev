@@ -1,5 +1,15 @@
 <?xml version="1.0"?>
 <robot name="neobot">
+
+  <!-- Robot Footprint -->
+  <link name="base_footprint"/>
+
+  <joint name="base_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.076" rpy="0 0 0"/>
+  </joint>
+
     
   <!-- base link -->
   <link name="base_link">
@@ -8,6 +18,9 @@
       <geometry>
 		    <cylinder length="0.12" radius="0.10"/>
       </geometry>
+      <material name="blue">
+        <color rgba="1.0 0 0.35 0.85"/>
+      </material>
     </visual>
   </link>
     
@@ -19,7 +32,7 @@
 		    <cylinder length="0.02" radius="0.02"/>
       </geometry>
       <material name="black">
-      	<color rgba="0.0 0.0 0.0 0.8" /> 
+        <color rgba="0.0 0.0 0.0 0.8" /> 
       </material>
     </visual>
   </link>
@@ -30,5 +43,86 @@
         <child link="laser_link" />
         <origin xyz="0 0 0.075" />
     </joint>
+
+  <!-- imu link -->
+  <link name="imu_link">
+    <visual>
+      <origin xyz="0 0 0.0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.02 0.02 0.02"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <!-- imu joint -->
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="imu_link" />
+    <origin xyz="0 0 0.02" />
+  </joint>
+
+  <!-- right_wheel link -->
+  <link name="right_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.57079 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.032"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 0.5" /> 
+      </material>
+    </visual>
+  </link>
+
+  <!-- right_whell joint -->
+  <joint name="right_wheel_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="right_wheel_link" />
+    <origin xyz="-0.02 -0.10 -0.06" />
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <!-- left_whell link -->
+  <link name="left_wheel_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="1.57079 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.032"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 0.5" /> 
+      </material>
+    </visual>
+  </link>
+    
+  <!-- left_whell joint -->
+  <joint name="left_wheel_joint" type="continuous">
+      <parent link="base_link" />
+      <child link="left_wheel_link" />
+      <origin xyz="-0.02 0.10 -0.06" />
+      <axis xyz="0 1 0" />
+  </joint>
+
+  <!-- caster link -->
+  <link name="caster_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+          <sphere radius="0.016"/>
+      </geometry>
+      <material name="black">
+        <color rgba="0.0 0.0 0.0 0.5" /> 
+      </material>
+    </visual>
+  </link>
+  
+  <!-- caster joint -->
+  <joint name="caster_joint" type="fixed">
+      <parent link="base_link" />
+      <child link="caster_link" />
+      <origin xyz="0.06 0.0 -0.076" />
+  </joint>
+
+
 
 </robot>
