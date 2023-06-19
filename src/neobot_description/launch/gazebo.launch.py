@@ -24,9 +24,26 @@ def generate_launch_description():
         package='gazebo_ros', 
         executable='spawn_entity.py',
         arguments=['-entity', robot_name_in_model,  '-file', urdf_model_path ], output='screen')
+    
+    # Start Robot State publisher
+    start_robot_state_publisher_cmd = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        arguments=[urdf_model_path]
+    )
+
+    # Launch RViz
+    start_rviz_cmd = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        output='screen',
+        # arguments=['-d', default_rviz_config_path]
+        )
 
     ld.add_action(start_gazebo_cmd)
     ld.add_action(spawn_entity_cmd)
-
+    ld.add_action(start_robot_state_publisher_cmd)
+    ld.add_action(start_rviz_cmd)
 
     return ld
