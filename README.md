@@ -34,6 +34,9 @@
 - `ros2 topic pub <topic-name> msg_type 'args'` 向特定topic发送数据
 ### ROS2 - param
 - `ros2 param set` 使用param命令可以在node运行过程中动态修改参数
+### ROS2 - interface
+- `ros2 interface show geometry_msgs/msg/Twist` 查看指定interface包含的消息内容
+- `ros2 interface proto geometry_msgs/msg/Twish` 使用proto序列化工具查看基本数据类型
 ### micro - ROS
 运行microros-agent可以选择选择多种通信协议，常见的有Serial、UDP、TCP、CAN等
 - `docker run -it --rm -v /dev:/dev -v /dev/shm:/dev/shm --privileged --net=host microros/micro-ros-agent udp4 --port 8888 -v6` 使用 UDPv4 协议运行 micro-ROS Agent
