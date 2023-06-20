@@ -40,3 +40,17 @@
 ### micro - ROS
 运行microros-agent可以选择选择多种通信协议，常见的有Serial、UDP、TCP、CAN等
 - `docker run -it --rm -v /dev:/dev -v /dev/shm:/dev/shm --privileged --net=host microros/micro-ros-agent udp4 --port 8888 -v6` 使用 UDPv4 协议运行 micro-ROS Agent
+## ROS常用工具
+### RViz
+> 全称 Robot Visualization tool 是一款数据可视化工具，强调把已有的数据可视化显示。能够把一些抽象的复杂的传感器信息以图像的方式传给我们，方便监控和调试。
+### Gazebo
+> 是完全独立于ros的一款三维物理仿真平台，强调创建一个虚拟的仿真环境。其仿真对象不仅是机器人的运动，还可以仿真机器人的传感器。仿真传感器得到的数据可以通过rviz显示，所以Gazebo经常和Rviz配合使用。Gazebo封装了较多支持ros的接口，与ros之间比较容易联动。除此之外，ros也可以与Carla、CarSim等仿真软件平台实现联合仿真。
+### RQt
+> 全称 ROS Qt ，也是一款可是化工具，比RViz更高级，rqt_graph用来显示通信架构，rqt_plot用来绘制曲线，rqt_console用来查看日志。
+### teleop_twist_keyboard
+- `ros2 run teleop_twist_keyboard teleop_twist_keyboard` 这个节点会监听键盘的按键事件，然后发布**cmd_vel**话题，该话题被gazebo的两轮差速插件所订阅，所以我们就可以通过这个节点来控制neobot。
+# Q&A
+1. Gazebo和rviz的区别？
+
+    Gazebo和RViz是完全两个不一样的东西。一个是用来仿真，提供一个模拟世界。一个是可视化，把我们接收到的信息呈现出来，rviz左边那一列每一个插件都是一个subcriber（比如:laserscan, pointcloud,等等）比如：laserscan里面有一个topic，它就是subscribe了这个topic才获取信息的。
+
