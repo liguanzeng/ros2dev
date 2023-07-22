@@ -5,6 +5,15 @@
 1. 记录ros2的学习节点
 2. 维护开发的功能包
 
+## 使用方式
+
+```bash
+# workspace目录下
+colcon build --packages-select <package-name>
+source install setup.bash
+ros2 launch <package-name> <node-launch-file>
+```
+
 ## 埋坑列表
 
 1. 编写一个轨迹跟踪控制节点
