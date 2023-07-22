@@ -45,6 +45,6 @@ def generate_launch_description():
     ld.add_action(start_gazebo_cmd)
     ld.add_action(spawn_entity_cmd)
     ld.add_action(start_robot_state_publisher_cmd)
-    ld.add_action(start_rviz_cmd)
+    #ld.add_action(start_rviz_cmd) 注释完即launch的时候不启动rviz
 
     return ld
