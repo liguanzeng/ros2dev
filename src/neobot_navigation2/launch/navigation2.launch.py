@@ -23,19 +23,23 @@ def generate_launch_description():
     rviz_config_dir = os.path.join(nav2_bringup_dir,'rviz','neobot_navigation2.rviz')
 
     #=============================3.声明启动launch文件，传入：地图路径、是否使用仿真时间以及nav2参数文件==============
-    nav2_bringup_launch = IncludeLaunchDescription(
+    return LaunchDescription([
+        DeclareLaunchArgument('use_sim_time',default_value=use_sim_time,description='Use simulation (Gzabo) clock if true'),
+        DeclareLaunchArgument('map',default_value=map_yaml_path,description='Full path to map file to load'),
+        DeclareLaunchArgument('params_file',default_value=nav2_param_path,description='Full path to param file to load'),
+
+        IncludeLaunchDescription(
             PythonLaunchDescriptionSource([nav2_bringup_dir,'/launch','/bringup_launch.py']),
             launch_arguments={
                 'map': map_yaml_path,
                 'use_sim_time': use_sim_time,
                 'params_file': nav2_param_path}.items(),
-        )
-    rviz_node =  Node(
-            package='rviz2',
+        ),
+        Node(
+                package='rviz2',
             executable='rviz2',
             name='rviz2',
             arguments=['-d', rviz_config_dir],
             parameters=[{'use_sim_time': use_sim_time}],
-            output='screen')
-    
-    return LaunchDescription([nav2_bringup_launch,rviz_node])
+            output='screen'),
+    ])
